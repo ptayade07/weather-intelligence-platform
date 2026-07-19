@@ -1,0 +1,12 @@
+pandas
+numpy
+requests
+scikit-learn
+statsmodels
+prophet
+shap
+matplotlib
+fastapi
+uvicorn
+streamlit
+joblib
