@@ -1,0 +1,5 @@
+The Southwest Monsoon is the primary rainy season affecting the Indian subcontinent from June to September. It originates from a pressure differential between the Indian Ocean and the Asian landmass, driving moisture-laden winds from the southwest.
+
+Key phases include onset (typically early June over Kerala), advance across the subcontinent, active/break cycles during the season, and withdrawal (typically September-October). Monsoon variability is influenced by El Nino-Southern Oscillation (ENSO), the Indian Ocean Dipole (IOD), and Madden-Julian Oscillation (MJO).
+
+The India Meteorological Department (IMD) issues seasonal and extended-range forecasts using dynamical models (coupled ocean-atmosphere models) and statistical models based on historical predictors.

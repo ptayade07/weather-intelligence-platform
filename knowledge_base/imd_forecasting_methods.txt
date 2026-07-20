@@ -1,0 +1,5 @@
+IMD's operational forecasting methodology combines numerical weather prediction (NWP) with statistical approaches. Seasonal forecasts use ensemble prediction systems and are updated with two-stage forecasts issued in April and June.
+
+Key predictors historically used in statistical models include Pacific and Indian Ocean sea surface temperatures, Eurasian snow cover, and pressure gradients. Machine learning approaches have increasingly supplemented these methods, using historical rainfall, temperature, humidity, and pressure data to model short-term (daily) precipitation.
+
+Common challenges include capturing intra-seasonal variability (active/break spells) and regional heterogeneity, since rainfall patterns vary significantly across India's geography.

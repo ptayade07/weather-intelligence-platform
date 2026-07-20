@@ -1,0 +1,5 @@
+This project analyzed 10 years (2015-2025) of daily weather data for Mumbai from the Open-Meteo API. A Random Forest model with engineered features (lagged precipitation, seasonal encodings) achieved the best precipitation prediction performance: MAE = 3.47mm, RMSE = 9.43mm, R-squared = 0.660.
+
+Comparison models included Linear Regression (MAE=7.86), Prophet (MAE=5.82), and SARIMAX (MAE=4.89), all of which underperformed the feature-engineered Random Forest.
+
+SHAP analysis showed that the previous day's precipitation is the strongest predictor of next-day precipitation, followed by relative humidity and surface pressure. The monsoon-month flag contributed minimally once other seasonal and lag features were included.
