@@ -38,9 +38,48 @@ def predict_precipitation(temperature_2m_max: float, temperature_2m_min: float,
     result = response.json()
     return f"Predicted precipitation: {result['predicted_precipitation_mm']} mm"
 
+@tool
+def get_current_weather(city: str) -> str:
+    """Get the current live weather for any city in the world by name
+    (e.g. 'Nashik', 'Mumbai', 'London'). Use this whenever the user asks
+    about current/live/today's weather in a specific place - NOT for
+    precipitation predictions, which use predict_precipitation instead."""
+    geo_resp = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search",
+        params={"name": city, "count": 1}
+    )
+    geo_data = geo_resp.json()
+    if "results" not in geo_data or not geo_data["results"]:
+        return f"Could not find a location matching '{city}'."
+
+    loc = geo_data["results"][0]
+    lat, lon = loc["latitude"], loc["longitude"]
+    resolved_name = f"{loc['name']}, {loc.get('country', '')}"
+
+    weather_resp = requests.get(
+        "https://api.open-meteo.com/v1/forecast",
+        params={
+            "latitude": lat, "longitude": lon,
+            "current": "temperature_2m,relative_humidity_2m,precipitation,"
+                        "windspeed_10m,surface_pressure,cloudcover",
+            "timezone": "auto"
+        }
+    )
+    current = weather_resp.json()["current"]
+
+    return (
+        f"Current weather in {resolved_name}: "
+        f"{current['temperature_2m']}\u00b0C, "
+        f"humidity {current['relative_humidity_2m']}%, "
+        f"precipitation {current['precipitation']}mm, "
+        f"wind {current['windspeed_10m']}km/h, "
+        f"pressure {current['surface_pressure']}hPa, "
+        f"cloud cover {current['cloudcover']}%."
+    )
+
 llm = ChatOllama(model="qwen2.5:3b")
 memory = MemorySaver()
-agent = create_react_agent(llm, tools=[search_knowledge_base, predict_precipitation], checkpointer=memory)
+agent = create_react_agent(llm, tools=[search_knowledge_base, predict_precipitation, get_current_weather], checkpointer=memory)
 
 config = {"configurable": {"thread_id": "session-1"}}
 
