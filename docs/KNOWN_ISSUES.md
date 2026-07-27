@@ -1,0 +1,8 @@
+# Known Issues & Limitations
+
+- **Docker:** Dockerfile is written and untested end-to-end. Docker Desktop installation on the dev machine has been blocked by a persistent DISM error (3017) and WSL2 update timeout, reproduced across two different networks. Currently pending a Windows Update before retrying.
+- **Extreme rainfall under-prediction:** All models (RF/XGBoost/LightGBM/SARIMAX/LSTM) under-predict the highest-rainfall days in the test set (e.g., actual 136.5mm predicted as 73.4mm). This is a known tendency of tree-based/sequence models trained on limited extreme-event data, not a bug.
+- **Small-LLM tool-calling unreliability:** `llama3.2:1b` hallucinates fake tool-call JSON instead of invoking real LangChain/LangGraph tools. `qwen2.5:3b` is used instead for all agent work.
+- **Agent tool-selection gaps:** the combined agent (`combined_agent.py`) reliably calls `predict_precipitation` but has been observed skipping `search_knowledge_base` on at least one clearly relevant question. Not silently patched — documented as a genuine reliability limit of ReAct-style agents with small local models.
+- **Data source disagreement:** Open-Meteo and NASA POWER agree reasonably well (r = 0.77–0.81) but show systematic offsets (~2.16°C, ~1.58mm) for the same coordinates/dates — a reminder that reanalysis products aren't ground truth.
+- **TensorFlow incompatibility:** no TensorFlow build exists for Python 3.14; the LSTM was implemented in PyTorch instead.
