@@ -34,7 +34,7 @@ def predict_precipitation(temperature_2m_max: float, temperature_2m_min: float,
         "is_monsoon": is_monsoon, "precip_lag1": precip_lag1,
         "precip_lag7": precip_lag7, "precip_roll7": precip_roll7
     }
-    response = requests.post("http://127.0.0.1:8000/predict", json=payload)
+    response = requests.post("http://127.0.0.1:8001/predict", json=payload)
     result = response.json()
     return f"Predicted precipitation: {result['predicted_precipitation_mm']} mm"
 

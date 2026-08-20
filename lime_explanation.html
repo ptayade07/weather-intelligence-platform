@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUTVPVS99V9X6Z7K"></div>
+        <div class="lime top_div" id="top_div7B7WB7JK3YZE27I"></div>
         
         <script>
-        var top_div = d3.select('#top_divUTVPVS99V9X6Z7K').classed('lime top_div', true);
+        var top_div = d3.select('#top_div7B7WB7JK3YZE27I').classed('lime top_div', true);
         
         
                     var pp_div = top_div.append('div')
                                         .classed('lime predicted_value', true);
                     var pp_svg = pp_div.append('svg').style('width', '100%');
-                    var pp = new lime.PredictedValue(pp_svg, 73.35799999999995, 0.0, 104.60499999999995);
+                    var pp = new lime.PredictedValue(pp_svg, 73.35799999999995, 0.0, 99.9126666666666);
                     
         var exp_div;
             var exp = new lime.Explanation(["negative", "positive"]);
         
             exp_div = top_div.append('div').classed('lime explanation', true);
-            exp.show([["precip_lag1 > 5.30", 14.852046430989818], ["relative_humidity_2m_mean > 86.00", 10.038791987655415], ["temperature_2m_max <= 28.30", 3.3128693954470645], ["surface_pressure_mean <= 1005.60", 2.968430402137855], ["windspeed_10m_max > 21.70", 1.5734593361197489], ["precip_roll7 > 7.25", -0.8186614764448406]], 1, exp_div);
+            exp.show([["precip_lag1 > 5.30", 15.220872415053236], ["relative_humidity_2m_mean > 86.00", 10.114226935043583], ["temperature_2m_max <= 28.30", 3.5184280511440567], ["surface_pressure_mean <= 1005.60", 3.211651132047923], ["windspeed_10m_max > 21.70", 1.508655082084886], ["precip_roll7 > 7.25", -0.941121249821967]], 1, exp_div);
             
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["precip_lag1", "127.00", 14.852046430989818], ["relative_humidity_2m_mean", "91.00", 10.038791987655415], ["temperature_2m_max", "26.20", 3.3128693954470645], ["surface_pressure_mean", "1001.60", 2.968430402137855], ["windspeed_10m_max", "30.30", 1.5734593361197489], ["precip_roll7", "38.94", -0.8186614764448406]], 1, raw_div);
+            exp.show_raw_tabular([["precip_lag1", "127.00", 15.220872415053236], ["relative_humidity_2m_mean", "91.00", 10.114226935043583], ["temperature_2m_max", "26.20", 3.5184280511440567], ["surface_pressure_mean", "1001.60", 3.211651132047923], ["windspeed_10m_max", "30.30", 1.508655082084886], ["precip_roll7", "38.94", -0.941121249821967]], 1, raw_div);
         
         </script>
         </body></html>
